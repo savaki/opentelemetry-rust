@@ -1,0 +1,34 @@
+[package]
+name = "opentelemetry-aws"
+version = "0.1.0"
+authors = ["OpenTelemetry Authors <cncf-opentelemetry-contributors@lists.cncf.io>"]
+description = "AWS exporter for OpenTelemetry"
+homepage = "https://github.com/open-telemetry/opentelemetry-rust"
+repository = "https://github.com/open-telemetry/opentelemetry-rust"
+readme = "README.md"
+categories = [
+    "development-tools::debugging",
+    "development-tools::profiling",
+    "asynchronous",
+]
+keywords = ["opentelemetry", "aws", "x-ray", "tracing", "async"]
+license = "Apache-2.0"
+edition = "2018"
+
+[dependencies]
+futures = "0.3.5"
+hex = "0.4.2"
+lazy_static = "1.4.0"
+opentelemetry = { version = "0.5.0", path = ".." }
+rand = "0.7.3"
+regex = "1"
+reqwest = { version = "0.10.4", features = ["blocking"], optional = true }
+rusoto_core = {version = "0.43.0", default_features = false, features=["rustls"]}
+rusoto_xray = {version = "0.43.0", default_features = false, features=["rustls"]}
+serde = { version = "1.0.110", features = ["derive"] }
+serde_json = "1.0.53"
+typed-builder = "0.5.1"
+
+[features]
+default = []
+collector_client = ["reqwest"]

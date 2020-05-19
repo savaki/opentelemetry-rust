@@ -39,10 +39,12 @@ serialize = ["serde", "bincode"]
 
 [workspace]
 members = [
+    "opentelemetry-aws",
     "opentelemetry-jaeger",
     "opentelemetry-zipkin",
     "examples/actix",
     "examples/async",
+    "examples/aws",
     "examples/basic",
     "examples/grpc",
     "examples/http",
